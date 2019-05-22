@@ -1,0 +1,97 @@
+*
+	box-sizing: border-box
+
+body 
+	margin: 0
+
+a 
+	text-decoration: none
+	color: blue
+	transition: color .5s
+	&:hover
+		color: red
+#nav	
+	text-align: center
+
+.container
+	padding: 0 30px
+
+.row 
+	margin: 0 -30px
+	&::after
+		content: ''
+		height: 0
+		display: block
+		clear: both
+		visibility: hidden
+
+.column	
+	float: left
+	padding: 0 30px
+	width: 25%
+	text-align: center
+	&.full-width
+		width: 100%
+	@media (max-width: 1024px) 
+		width: 50%
+	@media (max-width: 540px)
+		width: 100%
+	&.three-columns
+		width: 75%
+		@media (max-width: 1024px) 
+			width: 50%
+		@media (max-width: 540px)
+			width: 100%
+
+.logo
+	height: 60px
+	a 
+		font-size: 40px
+		color: inherit
+		font-family: 'Baloo Bhai', cursive
+
+.top-row
+	margin-bottom: 30px
+
+.search-bar
+	text-align: left
+	padding: 15px 0
+	input[type=search]
+		vertical-align: middle
+		display: inline-block
+		height: 30px
+		width: 100%
+		position: relative
+		padding-left: 35px
+		font-size: 16px
+	.icon-search
+		position: absolute
+		z-index: 1000
+		height: 30px
+		width: 30px
+		text-align: center
+		background: transparent
+		border: 0
+		cursor: pointer
+
+.img-responsive
+	max-width: 100%
+	height: auto
+
+.fade-enter-active, .fade-leave-active 
+	transition: opacity .5s
+
+.fade-enter
+	opacity: 1
+
+.fade-leave-to 
+	opacity: 0
+
+.slide-enter-active, .slide-leave-active 
+	transition: all .5s
+
+.slide-enter
+	transform: translate(0, -100px)
+
+.slide-enter-to 
+	transform: translate(0, 0)
