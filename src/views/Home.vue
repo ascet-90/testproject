@@ -85,6 +85,11 @@ export default {
                 this.searchText = val;
             }
         }
+    },
+    '$route.path': function(val) {
+        if(val === '/') {
+            this.searchText = '';
+        }
     }
   },
   mounted: function() {
