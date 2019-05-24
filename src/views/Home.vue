@@ -90,6 +90,7 @@ export default {
         } else if(oldval && val === '') {
             this.debouncedSearch.cancel();
             this.debouncedRandom();
+            return;
         }
         if(val !== undefined) this.$router.push(`/search?q=${val}`);
     },
