@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import GifSingle from './views/GifSingle.vue'
+import AuthorPage from './views/AuthorPage.vue'
 
 Vue.use(Router)
 
@@ -15,6 +17,16 @@ export default new Router({
       path: '/search',
       name: 'search',
       component: Home
+    },
+    {
+      path: '/gif/:id',
+      name: 'gif-single',
+      component: GifSingle
+    },
+    {
+      path: '/author/:gifId',
+      name: AuthorPage,
+      component: AuthorPage
     },
     {
       path: '/about',
