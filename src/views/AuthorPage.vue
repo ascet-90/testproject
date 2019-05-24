@@ -3,7 +3,7 @@
         <div class="row top-row v-align">
             <div class="column">
                 <div class="logo">
-                    <a href="/"><span>LOGO</span></a>                
+                    <router-link to="/"><span>LOGO</span></router-link>                
                 </div>
             </div>
             <div class="column column-right">
@@ -16,7 +16,7 @@
             <div class="column full-width">
                 <h1>{{authorData.user.display_name}}</h1>
                 <span class="icon-spin5" v-show="loading"></span>
-                <img :src="authorData.user.avatar_url" alt="Author Avatar" @load="onLoad" v-show="!loading">
+                <img class="avatar" :src="authorData.user.avatar_url" alt="Author Avatar" @load="onLoad" v-show="!loading">
                 <p>Author Profile: <a :href="authorData.user.profile_url">{{authorData.user.username}}</a> </p>
             </div>
         </div>
@@ -52,6 +52,9 @@ export default {
 </script>
 
 <style>
+    .avatar {
+        max-width: 200px;
+    }
     .icon-spin5::before {
         animation: spin 1s infinite linear;
         font-size: 40px;

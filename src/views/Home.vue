@@ -3,7 +3,7 @@
     <div class="row top-row">
         <div class="column">
             <div class="logo">
-                <a href="/"><span>LOGO</span></a>                
+                <router-link to="/"><span>LOGO</span></router-link>                
             </div>
         </div>
         <div class="column three-columns">
