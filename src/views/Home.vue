@@ -69,25 +69,31 @@ export default {
         this.debouncedSearch();
     },
     searchGifs: function() {
-        if(this.infScroll && !this.infScroll.option.loadOnScroll) {
-            this.infScroll.option({
+        var vm = this;
+        if(vm.infScroll && !vm.infScroll.option.loadOnScroll) {
+            vm.infScroll.option({
                 loadOnScroll: true
             });
-        }  
-        var vm = this;
-        Api.searchGifs(this.searchText, function( res ) {
+        }       
+        if(vm.searchText === undefined || vm.searchText === '') {
+            vm.$router.push('/search?q=');
+            vm.getRandomGifs();
+        } else {
+            Api.searchGifs(vm.searchText, function( res ) {
               vm.gifs = res.data;
               vm.pagination = res.pagination;
-        });
+            });
+        }        
     }
   },
   watch: {
-    searchText: function(val, oldval) {
+    searchText: function(val, oldval) {  
         if(oldval === undefined && val !== '' && this.$route.query.q) {
             this.searchGifs();
-        } else if(oldval && val !== '') {
+        } else if(val !== '') {
             this.searchDebounceGifs(); 
         } else if(oldval && val === '') {
+            this.$router.push(`/search?q=`);
             this.debouncedSearch.cancel();
             this.debouncedRandom();
             return;
