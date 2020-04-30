@@ -10,7 +10,7 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "infinite-scroll": "^3.0.6",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lodash.debounce": "^4.0.8",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
